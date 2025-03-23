@@ -46,6 +46,11 @@
     },
     "Duration": {
       "type": "string"
+    },
+    "Order": {
+      "type": "integer",
+      "required": true,
+      "unique": true
     }
   }
 }

@@ -458,6 +458,10 @@ export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
+    Order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.DefaultTo<1>;
     Price: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     Title: Schema.Attribute.String;
@@ -497,6 +501,9 @@ export interface ApiSuccessStorySuccessStory
     > &
       Schema.Attribute.Private;
     Name: Schema.Attribute.String;
+    Order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -508,6 +515,7 @@ export interface ApiSuccessStorySuccessStory
 export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
   collectionName: 'testimonials';
   info: {
+    description: '';
     displayName: 'Testimonial';
     pluralName: 'testimonials';
     singularName: 'testimonial';
@@ -527,6 +535,9 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     Location: Schema.Attribute.String;
     Name: Schema.Attribute.String;
+    Order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     Photo: Schema.Attribute.Media<'images' | 'files'>;
     publishedAt: Schema.Attribute.DateTime;
     Quote: Schema.Attribute.Text;

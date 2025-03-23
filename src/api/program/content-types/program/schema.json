@@ -30,6 +30,12 @@
         "videos",
         "audios"
       ]
+    },
+    "Order": {
+      "required": true,
+      "unique": true,
+      "default": 1,
+      "type": "integer"
     }
   }
 }
