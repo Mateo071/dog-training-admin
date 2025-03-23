@@ -444,6 +444,10 @@ export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    Color: Schema.Attribute.Enumeration<
+      ['blue', 'teal', 'blue-dark', 'teal-dark', 'blue-light', 'teal-light']
+    > &
+      Schema.Attribute.Required;
     Content: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
