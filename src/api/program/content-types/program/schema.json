@@ -4,30 +4,32 @@
   "info": {
     "singularName": "program",
     "pluralName": "programs",
-    "displayName": "Program"
+    "displayName": "Program",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "Name": {
+    "Title": {
       "type": "string"
     },
     "Price": {
       "type": "integer"
     },
-    "Description": {
+    "Content": {
       "type": "blocks"
     },
     "Media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     }
   }
 }
