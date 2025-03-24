@@ -385,7 +385,10 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Image: Schema.Attribute.Media<'images' | 'files'>;
-    LeftBlockContent: Schema.Attribute.Blocks;
+    LeftBlockContents: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::left-block-content.left-block-content'
+    >;
     LeftBlockHeading: Schema.Attribute.String;
     LeftContent: Schema.Attribute.Blocks;
     LeftHeading: Schema.Attribute.String;
@@ -431,6 +434,36 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     Title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiLeftBlockContentLeftBlockContent
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'left_block_contents';
+  info: {
+    description: '';
+    displayName: 'Left Block Content';
+    pluralName: 'left-block-contents';
+    singularName: 'left-block-content';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Bullet: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::left-block-content.left-block-content'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1067,6 +1100,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::blog.blog': ApiBlogBlog;
+      'api::left-block-content.left-block-content': ApiLeftBlockContentLeftBlockContent;
       'api::program.program': ApiProgramProgram;
       'api::success-story.success-story': ApiSuccessStorySuccessStory;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;

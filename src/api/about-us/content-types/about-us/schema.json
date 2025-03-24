@@ -44,8 +44,10 @@
     "LeftBlockHeading": {
       "type": "string"
     },
-    "LeftBlockContent": {
-      "type": "blocks"
+    "LeftBlockContents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::left-block-content.left-block-content"
     }
   }
 }

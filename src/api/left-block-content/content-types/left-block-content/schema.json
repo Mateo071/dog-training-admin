@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "left_block_contents",
+  "info": {
+    "singularName": "left-block-content",
+    "pluralName": "left-block-contents",
+    "displayName": "Left Block Content",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Bullet": {
+      "type": "string"
+    }
+  }
+}
