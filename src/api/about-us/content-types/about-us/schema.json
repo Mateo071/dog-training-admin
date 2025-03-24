@@ -11,13 +11,13 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "Heading": {
+    "MainHeading": {
       "type": "string"
     },
-    "Title": {
+    "Subheading": {
       "type": "string"
     },
-    "Subtitle": {
+    "LeftHeading": {
       "type": "string"
     },
     "Image": {
@@ -29,8 +29,23 @@
         "files"
       ]
     },
-    "Content": {
-      "type": "richtext"
+    "RightHeading": {
+      "type": "string"
+    },
+    "RightContent": {
+      "type": "blocks"
+    },
+    "LeftContent": {
+      "type": "blocks"
+    },
+    "Mission": {
+      "type": "string"
+    },
+    "LeftBlockHeading": {
+      "type": "string"
+    },
+    "LeftBlockContent": {
+      "type": "blocks"
     }
   }
 }

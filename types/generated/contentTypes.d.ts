@@ -381,21 +381,26 @@ export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Content: Schema.Attribute.RichText;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Heading: Schema.Attribute.String;
     Image: Schema.Attribute.Media<'images' | 'files'>;
+    LeftBlockContent: Schema.Attribute.Blocks;
+    LeftBlockHeading: Schema.Attribute.String;
+    LeftContent: Schema.Attribute.Blocks;
+    LeftHeading: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::about-us.about-us'
     > &
       Schema.Attribute.Private;
+    MainHeading: Schema.Attribute.String;
+    Mission: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    Subtitle: Schema.Attribute.String;
-    Title: Schema.Attribute.String;
+    RightContent: Schema.Attribute.Blocks;
+    RightHeading: Schema.Attribute.String;
+    Subheading: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
