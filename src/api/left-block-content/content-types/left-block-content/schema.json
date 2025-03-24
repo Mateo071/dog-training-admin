@@ -12,7 +12,14 @@
   },
   "attributes": {
     "Bullet": {
-      "type": "string"
+      "type": "string",
+      "required": true
+    },
+    "Order": {
+      "type": "integer",
+      "required": true,
+      "unique": true,
+      "min": 1
     }
   }
 }

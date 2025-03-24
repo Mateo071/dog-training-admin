@@ -12,7 +12,8 @@
   },
   "attributes": {
     "MainHeading": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Subheading": {
       "type": "string"

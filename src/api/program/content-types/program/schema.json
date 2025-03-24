@@ -35,7 +35,8 @@
       "required": true,
       "unique": true,
       "default": 1,
-      "type": "integer"
+      "type": "integer",
+      "min": 1
     },
     "Color": {
       "type": "enumeration",

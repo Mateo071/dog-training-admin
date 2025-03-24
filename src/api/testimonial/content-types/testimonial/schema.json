@@ -32,7 +32,8 @@
     "Order": {
       "type": "integer",
       "required": true,
-      "unique": true
+      "unique": true,
+      "min": 1
     }
   }
 }

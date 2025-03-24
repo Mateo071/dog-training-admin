@@ -398,7 +398,7 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
       'api::about-us.about-us'
     > &
       Schema.Attribute.Private;
-    MainHeading: Schema.Attribute.String;
+    MainHeading: Schema.Attribute.String & Schema.Attribute.Required;
     Mission: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     RightContent: Schema.Attribute.Blocks;
@@ -453,7 +453,7 @@ export interface ApiLeftBlockContentLeftBlockContent
     draftAndPublish: true;
   };
   attributes: {
-    Bullet: Schema.Attribute.String;
+    Bullet: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -463,6 +463,15 @@ export interface ApiLeftBlockContentLeftBlockContent
       'api::left-block-content.left-block-content'
     > &
       Schema.Attribute.Private;
+    Order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -503,6 +512,12 @@ export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
     Order: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      > &
       Schema.Attribute.DefaultTo<1>;
     Price: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
@@ -545,7 +560,13 @@ export interface ApiSuccessStorySuccessStory
     Name: Schema.Attribute.String;
     Order: Schema.Attribute.Integer &
       Schema.Attribute.Required &
-      Schema.Attribute.Unique;
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -579,7 +600,13 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
     Name: Schema.Attribute.String;
     Order: Schema.Attribute.Integer &
       Schema.Attribute.Required &
-      Schema.Attribute.Unique;
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
     Photo: Schema.Attribute.Media<'images' | 'files'>;
     publishedAt: Schema.Attribute.DateTime;
     Quote: Schema.Attribute.Text;
