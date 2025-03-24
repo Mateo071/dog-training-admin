@@ -1,0 +1,58 @@
+{
+  "kind": "singleType",
+  "collectionName": "heroes",
+  "info": {
+    "singularName": "hero",
+    "pluralName": "heroes",
+    "displayName": "Hero",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Subheading": {
+      "type": "string"
+    },
+    "Background": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "HeadingColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "brand-blue",
+        "brand-teal",
+        "brand-blue-light",
+        "brand-teal-light",
+        "brand-blue-dark",
+        "brand-teal-dark"
+      ]
+    },
+    "SubheadingColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "brand-blue",
+        "brand-teal",
+        "brand-blue-light",
+        "brand-teal-light",
+        "brand-blue-dark",
+        "brand-teal-dark"
+      ],
+      "required": false
+    }
+  }
+}

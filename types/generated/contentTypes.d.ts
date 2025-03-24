@@ -440,6 +440,58 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiHeroHero extends Struct.SingleTypeSchema {
+  collectionName: 'heroes';
+  info: {
+    description: '';
+    displayName: 'Hero';
+    pluralName: 'heroes';
+    singularName: 'hero';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Background: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Heading: Schema.Attribute.String;
+    HeadingColor: Schema.Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'brand-blue',
+        'brand-teal',
+        'brand-blue-light',
+        'brand-teal-light',
+        'brand-blue-dark',
+        'brand-teal-dark',
+      ]
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::hero.hero'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Subheading: Schema.Attribute.String;
+    SubheadingColor: Schema.Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'brand-blue',
+        'brand-teal',
+        'brand-blue-light',
+        'brand-teal-light',
+        'brand-blue-dark',
+        'brand-teal-dark',
+      ]
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiLeftBlockContentLeftBlockContent
   extends Struct.CollectionTypeSchema {
   collectionName: 'left_block_contents';
@@ -1127,6 +1179,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::blog.blog': ApiBlogBlog;
+      'api::hero.hero': ApiHeroHero;
       'api::left-block-content.left-block-content': ApiLeftBlockContentLeftBlockContent;
       'api::program.program': ApiProgramProgram;
       'api::success-story.success-story': ApiSuccessStorySuccessStory;
